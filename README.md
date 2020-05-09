@@ -32,5 +32,7 @@ The following figure shows the PSMC results of different sequencing depths.
 
 
 Reference
+
 https://github.com/lh3/psmc/blob/master/README
+
 https://gatk.broadinstitute.org/hc/en-us/articles/360035535932-Germline-short-variant-discovery-SNPs-Indels-
