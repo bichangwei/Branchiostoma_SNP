@@ -14,7 +14,23 @@ This script is applied to filter low quality variants and annotate the high qual
 This script is applied to infer the historical population size dynamics of Branchiostoma population. First, you should call the consequence for each sample using samtools mpileup and bcftools. Then, you should convert the fastq format files to the input format for PSMC using the "fq2psmcfa" program provided with the PSMC software. Next, appling the main "psmc" program to infer the population size history. The "psmc_plot.pl" script was finally used to visualize the PSMC results. 
 
 The following figure shows the population size dynamics of Branchiostoma belcheri during the Pleistocene.
+![image](https://github.com/bichangwei/Branchiostoma_SNP/blob/master/images/B_belcheri_PSMC.jpg)
 
 
+One may want to perform 100 bootstrap replicates to assess the uncertainty in effective population size estimates. Then, you should randomly sample with replacement 5-Mb sequence segments using the '-b' option in "psmc" program. The following figure shows the population size dynamics of Branchiostoma floridae after 100 bootstrap replicates.
+
+![image](https://github.com/bichangwei/Branchiostoma_SNP/blob/master/images/Bootstrap_B_floridae.jpg)
 
 
+5. Estimate the best sequencing depth for PSMC.
+In this workflow, we also provide a method to estimate the best sequencing depth for PSMC if you have high-depth sequencing data.
+First, you should use "samtools view" or "sambamba view" to downsample your bam format files into 5x, 10x, 15x, 20x, 25x, 30x, 35x,...
+Then, repeat the step provided in the "run.PSMC.sh" script.
+
+The following figure shows the PSMC results of different sequencing depths.
+![image](https://github.com/bichangwei/Branchiostoma_SNP/blob/master/images/Diff_depth_PSMC.jpg)
+
+
+Reference
+https://github.com/lh3/psmc/blob/master/README
+https://gatk.broadinstitute.org/hc/en-us/articles/360035535932-Germline-short-variant-discovery-SNPs-Indels-
